@@ -23,21 +23,30 @@ int validation_du_mois() {
 
 }
 
-int entree_Utilisateur_date() {
-	//entres de l'utilisateur verification immediate, 0 pour annuller l'entree
+void entree_Utilisateur_date() {
+	//entres de l'utilisateur avec verification immediate et loop sur erreur, 0 pour annuller l'entree
+	int error = 1;
 	while (1) {
 		printf("\n Entrez une date en format AAAA,MM,JJ\n");
-		printf("Annee (entre 1900 et 2024), 0 pour annuler: ");
-		scanf("%d", &nbr_annee);
-		if (!validation_entre_Min_Max(nbr_annee, 1900, 2024)) break;        //min max 1900 et 2024
-		printf("\n mois: ?");
-		scanf("%d", &nbr_mois);
-		printf("\n jour: ?");
-		scanf("%d", &nbr_annee);
+		while (!error) {
+			printf("Annee (entre 1900 et 2024), 0 pour annuler: ");
+			error = scanf("%d", &nbr_annee);
+			if (nbr_annee == 0) {
+				break;
+			}
+			else {
+				
+			}
+		}
+		//if (!validation_entre_Min_Max(nbr_annee, 1900, 2024)) break;        //min max 1900 et 2024
+		//printf("\n mois: ?");
+		//scanf("%d", &nbr_mois);
+		//printf("\n jour: ?");
+		//scanf("%d", &nbr_annee);
 	}
 }
 
 int main() {
-
+	entree_Utilisateur_date();
 	return 0;
 }
